@@ -42,4 +42,26 @@ public class Oblig1Test extends TestCase {
 
         assertEquals(5,Oblig1.antallUlikeSorter(a));
     }
+
+    public void testAntallulikeUsortert() {
+
+        int[] a= {1,5,3,2,4,1222,1,3,5};
+
+        assertEquals(6,Oblig1.antallulikeUsortert(a));
+
+    }
+
+    public void testDelsortering() {
+
+        int[] a= {6,10,9,4,1,3,8,5,2,7};
+
+        Oblig1.delsortering(a);
+        for(int b: a){
+            System.out.println(b);
+        }
+
+
+
+
+    }
 }
