@@ -79,6 +79,7 @@ public class Oblig1 {
         int count = 1;
 
         for(int i = 0; i < a.length-1; i++){
+
             if(a[i] != a[i+1]){
                count ++;
             }
@@ -118,4 +119,94 @@ public class Oblig1 {
 
 
 
+    /**
+     * Opppgave 3
+     *
+     *TODO: ?????
+     *
+     */
+
+    public static int antallulikeUsortert(int [] a){
+
+        if(a.length == 0){
+            return 0;
+        }
+        int count = 0;
+
+        int test = maks(a);
+
+
+        for(int i = 0; i <= test; i++){
+
+         for(int j = 0; j < a.length; j++){
+
+               if(a[j] == i){
+                   count++;
+                   break;
+               }
+           }
+
+        }
+        return count;
+    }
+
+/**
+ * OPPGAVE 4
+ *
+ *
+ *
+ */
+
+public static void delsortering(int [] a) {
+
+
+    int left = 0;
+    int right = a.length-1;
+
+    while(left<right){
+
+
+    while(left < right && a[left] % 2 != 0) left++;
+    while(left < right && a[right] % 2 == 0) right--;
+
+    if(left<right) {
+        int temp = a[left];
+        a[left] = a[right];
+        a[right] = temp;
+
+    }
+    }
+
+    sort(a,0,right);
+    sort(a,right, a.length);
+
+
 }
+
+public static void sort(int [] a, int from, int to){
+
+for (int i = from; i<to-1; i++){
+
+    int x = i;
+    int verdi = a[i];
+
+    for( int j = i+1; j < to; j++){
+
+        if(a[j] < verdi){
+            verdi = a[j];
+            x=j;
+        }
+
+    }
+
+    int temp = a[i];
+    a[i] = a[x];
+    a[x] = temp;
+}
+
+}
+
+
+}
+
+
