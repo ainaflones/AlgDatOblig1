@@ -1,5 +1,7 @@
 import junit.framework.TestCase;
 
+import java.util.Arrays;
+
 public class Oblig1Test extends TestCase {
 
     public void testMaks() {
@@ -63,5 +65,41 @@ public class Oblig1Test extends TestCase {
 
 
 
+    }
+
+    public void testRotasjon() {
+        char[] a = {};
+        char[] b = {'A'};
+        char[] c = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+
+        Oblig1.rotasjon(a);
+        assertEquals("[]", Arrays.toString(a));
+
+        Oblig1.rotasjon(b);
+        assertEquals("[A]", Arrays.toString(b));
+
+        Oblig1.rotasjon(c);
+        assertEquals("[J, A, B, C, D, E, F, G, H, I, J]", Arrays.toString(c));
+    }
+
+    public void testRotasjon1() {
+        char[] a = {};
+        char[] b = {'A'};
+        char[] c = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+
+        Oblig1.rotasjon(a, 2);
+        assertEquals("[]", Arrays.toString(a));
+
+        Oblig1.rotasjon(b, -4);
+        assertEquals("[A]", Arrays.toString(b));
+
+        Oblig1.rotasjon(c, 3);
+        assertEquals("[H, I, J, A, B, C, D, E, F, G]", Arrays.toString(c));
+
+        Oblig1.rotasjon(c, -2);
+        assertEquals("[J, A, B, C, D, E, F, G, H, I]", Arrays.toString(c));
+
+        Oblig1.rotasjon(c, -12);
+        assertEquals("[B, C, D, E, F, G, H, I, J, A]", Arrays.toString(c));
     }
 }

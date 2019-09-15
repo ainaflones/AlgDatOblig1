@@ -182,6 +182,7 @@ public class Oblig1 {
 
     /**
      * Oppgave 5
+     * @param a
      */
 
     public static void rotasjon(char[] a) {
@@ -193,5 +194,38 @@ public class Oblig1 {
         }
 
         a[0] = temp;
+    }
+
+    /**
+     * Oppgave 6
+     * @param a
+     * @param k
+     */
+    public static void rotasjon(char[] a, int k) {
+        if (a.length <= 1) return;
+
+        k = k % a.length; // remove unnecessary rotations
+        if (k == 0) return;
+
+        if (k < 0) { // turn all k positive and all rotation rightwards
+            k += a.length;
+        }
+
+        char[] temp = new char[k];  // temporary storage
+
+        int marker = a.length - k;  // marks the start of values to be copied
+        for (int i = 0; i < temp.length; i++, marker++) { // copy to temp storage
+            temp[i] = a[marker];
+        }
+
+        // move the rest of the values k steps to the right, starting from the end
+
+        for (int i = a.length - 1; i >= k; i--) {
+            a[i] = a[i - k];
+        }
+
+        for (int i = 0; i < temp.length; i++) { // place the temp values back to the array
+            a[i] = temp[i];
+        }
     }
 }
