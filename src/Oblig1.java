@@ -38,25 +38,25 @@ public class Oblig1 {
             }
         }
 
-    return a[a.length-1];
+        return a[a.length - 1];
     }
 
     public static int ombyttinger(int a[]){
 
-     int count = 0;
+        int count = 0;
 
-     for( int i = 0; i<a.length-1;i++ ){
+        for (int i = 0; i < a.length - 1; i++) {
 
-         if(a[i] > a[i+1]){
-             count++;
-             int temp = a[i];
-             a[i] = a[i + 1];
-             a[i + 1] = temp;
+            if (a[i] > a[i + 1]) {
+                count++;
+                int temp = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
 
-         }
-     }
+            }
+        }
 
-     return count;
+        return count;
     }
 
 
@@ -81,11 +81,11 @@ public class Oblig1 {
         for(int i = 0; i < a.length-1; i++){
 
             if(a[i] != a[i+1]){
-               count ++;
+                count++;
             }
         }
 
-    return count;
+        return count;
     }
 
 
@@ -96,7 +96,7 @@ public class Oblig1 {
         for(int i = 0; i<a.length-1; i++){
 
             if (a[i] > a[i+1]){
-                    sjekk = false;
+                sjekk = false;
             }
         }
         return sjekk;
@@ -121,98 +121,111 @@ public class Oblig1 {
 
         for(int i = 0; i <= test; i++){
 
-         for(int j = 0; j < a.length; j++){
+            for (int j = 0; j < a.length; j++) {
 
-               if(a[j] == i){
-                   count++;
-                   break;
-               }
-           }
+                if (a[j] == i) {
+                    count++;
+                    break;
+                }
+            }
 
         }
         return count;
     }
 
-/**
- * OPPGAVE 4
- *
- *
- *
- */
-
-public static void delsortering(int [] a) {
+    /**
+     * OPPGAVE 4
+     */
+    
+    public static void delsortering(int[] a) {
 
 
-    int left = 0;
-    int right = a.length-1;
+        int left = 0;
+        int right = a.length - 1;
 
-    while(left<right){
+        while (left < right) {
+            while (left < right && a[left] % 2 != 0) left++;
+            while (left < right && a[right] % 2 == 0) right--;
 
-
-    while(left < right && a[left] % 2 != 0) left++;
-    while(left < right && a[right] % 2 == 0) right--;
-
-    if(left<right) {
-        int temp = a[left];
-        a[left] = a[right];
-        a[right] = temp;
-
-    }
-    }
-
-    sort(a,0,right);
-    sort(a,right, a.length);
-
-
-}
-
-public static void sort(int [] a, int from, int to){
-
-for (int i = from; i<to-1; i++){
-
-    int x = i;
-    int verdi = a[i];
-
-    for( int j = i+1; j < to; j++){
-
-        if(a[j] < verdi){
-            verdi = a[j];
-            x=j;
+            if (left < right) {
+                int temp = a[left];
+                a[left] = a[right];
+                a[right] = temp;
+            }
         }
 
+        sort(a, 0, right);
+        sort(a, right, a.length);
     }
 
-    int temp = a[i];
-    a[i] = a[x];
-    a[x] = temp;
-}
+    public static void sort(int[] a, int from, int to) {
 
-}
+        for (int i = from; i < to - 1; i++) {
 
-/**
- * Oppgave 7a
- */
+            int x = i;
+            int verdi = a[i];
 
-public static String flett(String a, String b) {
+            for (int j = i + 1; j < to; j++) {
 
-    String flettet = "";
+                if (a[j] < verdi) {
+                    verdi = a[j];
+                    x = j;
+                }
+            }
 
-    int counterA = 0;
-    int counterB = 0;
-
-    while (counterA != a.length() || counterB != b.length()) {
-        if (counterA < a.length()) {
-            flettet += a.charAt(counterA++);
-        }
-        if (counterB < b.length()) {
-            flettet += b.charAt(counterB++);
+            int temp = a[i];
+            a[i] = a[x];
+            a[x] = temp;
         }
     }
-    return flettet;
 
+
+    /**
+     * Oppgave 5
+     * @param a
+     */
+
+    public static void rotasjon(char[] a) {
+        if (a.length <= 1) return;
+
+        char temp = a[a.length - 1];
+        for (int i = a.length - 2; i >= 0; i--) {
+            a[i + 1] = a[i];
+        }
+
+        a[0] = temp;
+    }
+
+    /**
+     * Oppgave 6
+     * @param a
+     * @param k
+     */
+    public static void rotasjon(char[] a, int k) {
+        if (a.length <= 1) return;
+
+        k = k % a.length; // remove unnecessary rotations
+        if (k == 0) return;
+
+        if (k < 0) { // turn all k positive and all rotation rightwards
+            k += a.length;
+        }
+
+        char[] temp = new char[k];  // temporary storage
+
+        int marker = a.length - k;  // marks the start of values to be copied
+        for (int i = 0; i < temp.length; i++, marker++) { // copy to temp storage
+            temp[i] = a[marker];
+        }
+
+        // move the rest of the values k steps to the right, starting from the end
+
+        for (int i = a.length - 1; i >= k; i--) {
+            a[i] = a[i - k];
+        }
+
+        for (int i = 0; i < temp.length; i++) { // place the temp values back to the array
+            a[i] = temp[i];
+        }
+    }
 }
-
-
-}
-
-
