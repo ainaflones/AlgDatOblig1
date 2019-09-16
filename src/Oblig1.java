@@ -277,7 +277,7 @@ public class Oblig1 {
     }
 
     /*
-    * Oppgave 7
+    * Oppgave 8
     * */
 
     public static int[] indekssortering(int[] a) {
