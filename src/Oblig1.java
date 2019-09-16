@@ -228,4 +228,23 @@ public class Oblig1 {
             a[i] = temp[i];
         }
     }
+
+    public static String flett(String a, String b) {
+
+        String flettet = "";
+
+        int counterA = 0;
+        int counterB = 0;
+
+        while (counterA != a.length() || counterB != b.length()) {
+            if (counterA < a.length()) {
+                flettet += a.charAt(counterA++);
+            }
+            if (counterB < b.length()) {
+                flettet += b.charAt(counterB++);
+            }
+        }
+        return flettet;
+
+    }
 }
