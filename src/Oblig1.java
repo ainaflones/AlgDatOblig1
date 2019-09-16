@@ -247,4 +247,33 @@ public class Oblig1 {
         return flettet;
 
     }
+
+    /**
+     * Oppgave 7B
+     * @param s
+     * @return
+     */
+    public static String flett(String... s) {
+
+        String flettet = "";
+
+        int counter = 0;
+        int biggest = s[0].length();
+
+        do{
+
+            for (String a : s) {
+                if (a.isEmpty() || a.length() <= counter) {
+                } else
+                    flettet += a.charAt(counter);
+                if(a.length()>biggest) biggest = a.length();
+            }
+            counter++;
+        }
+        while(counter<biggest);
+
+        return flettet;
+
+    }
+
 }
