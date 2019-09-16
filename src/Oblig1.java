@@ -4,7 +4,6 @@ import java.util.NoSuchElementException;
 
 public class Oblig1 {
 
-
     /**
      *OPPGAVE 1
      *
@@ -12,9 +11,20 @@ public class Oblig1 {
      *
      * The highest amount of switching occurs when the array is sorted in descending order, because every number has to switch places.
      * The lowest amount of switching occurs when the array is sorted in ascending order, where none of the numbers has to be switched.
-     * TODO: What is the average?
-     * TODO: Kan vi på grunnlag av dette si noe om metoden maks er bedre eller dårligere enn de vi har sett på tidligere?
+     * The average number of swaping = 1/2 + 2/3 + 3/4 + ... + (n-1)/n, where n is the amount of numbers
+     *                               = (1 + 1 + 1 + ... + 1) - (1/2 + 1/3 + 1/4 + .... + 1/n)
+     *                               = n - H_n, where H_n is the n-th harmonic number
+     *                               = n - ln(n) - γ, where γ is the Euler constant
+     *                               ~= n - ln(n) - 0.577
      *
+     * Since n = 10, the average number of swaping = 1/2 + 2/3 + 3/4 + ... + 9/10 (~= 7.071 <= without using the euler constant approximation)
+     *                                             ~= 10 - ln(10) -0.577
+     *                                             ~= 7.12
+     *
+     *
+     * In the previous max method, the average number of a[i] > max_value ~= ln(n) - 0.577, of order ln(n)
+     * And the average number of a[i] > a[i+1] ~= n - ln(n) -0.577, of order n
+     * Therefore the previous max method is better than the maks method here
      *
      * @param a
      * @return
