@@ -276,4 +276,61 @@ public class Oblig1 {
 
     }
 
+    /*
+    * Oppgave 7
+    * */
+
+    public static int[] indekssortering(int[] a) {
+        if (a == null) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        int n = a.length;
+
+        // copy input array such that it would not be changed in sorting
+        int[] copy = new int[n];
+        System.arraycopy(a, 0, copy, 0, n);
+
+        // create a array of index having the same length as the copied array
+        // indexList = {0, 1, 2, 3, ..., n-1}
+        int[] indexList = new int[n];
+        for (int i = 0; i < n; i++) {
+            indexList[i] = i;
+        }
+
+        // Use selection sort theory to sort the copied array
+        // at the same time change the position of indexList at the same time
+        for (int i = 0; i < n - 1; i++) {
+            int min = min(copy, i, n);
+            exchange(copy, i, min);
+            exchange(indexList, i, min);
+        }
+
+        return indexList;
+    }
+
+    public static void exchange(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    public static int min(int[] a, int from, int to) {
+        if (from < 0 || to > a.length || from >= to)
+            throw new IllegalArgumentException("Illegal interval!");
+
+        int m = from;
+        int min = a[from];
+
+        for (int i = from + 1; i < to; i++)
+            if (a[i] < min) {
+                m = i;
+                min = a[m];
+            }
+
+        return m;
+    }
+
+
+
 }
