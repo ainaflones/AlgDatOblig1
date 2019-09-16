@@ -341,6 +341,65 @@ public class Oblig1 {
         return m;
     }
 
+
+    /*
+    * Oppgave 9
+    * */
+
+    public static int[] tredjeMin(int[] list){
+        int length = list.length;
+
+        if (length < 3) {
+            throw new NoSuchElementException("The array have fewer than 3 elements");
+        }
+
+        // use indekssortering to sort and find the correct start index and values of min, secondMin and thirdMin
+        int[] copy = new int[3];
+        System.arraycopy(list, 0, copy, 0, 3);
+        int[] sortedFirstThree = indekssortering(copy);
+
+
+        int min = sortedFirstThree[0];
+        int secondMin = sortedFirstThree[1];
+        int thirdMin = sortedFirstThree[2];
+
+        int minValue = list[min];
+        int secondMinValue = list[secondMin];
+        int thirdMinValue = list[thirdMin];
+
+        for (int i = 3; i < length; i++) {
+            int value = list[i];
+
+            if (value < thirdMinValue){
+                if (value < secondMinValue){
+                    // a[i] <minValue
+                    if (value < minValue){
+                        thirdMin = secondMin;
+                        thirdMinValue = secondMinValue;
+                        secondMin = min;
+                        secondMinValue = minValue;
+                        min = i;
+                        minValue = value;
+                    }
+                    // minValue < a[i] < secondMinValue
+                    else {
+                        thirdMin = secondMin;
+                        thirdMinValue = secondMinValue;
+                        secondMin = i;
+                        secondMinValue = value;
+                    }
+                }
+                // secondMinValue < a[i] < thirdMinvalue
+                else {
+                    thirdMin = i;
+                    thirdMinValue = value;
+                }
+            }
+        }
+        return new int[] {min, secondMin, thirdMin};
+
+    }
+
     /**
      * oppgave 10
      * Vi tar som gitt at tegnstrengene ​a ​ og ​b​ kun har store bokstaver (A − Å)
