@@ -126,6 +126,7 @@ public class Oblig1 {
         }
         int count = 0;
 
+        /**
         int test = maks(a);
 
 
@@ -140,6 +141,14 @@ public class Oblig1 {
             }
 
         }
+
+         **/
+
+
+
+
+
+
         return count;
     }
 
@@ -239,6 +248,13 @@ public class Oblig1 {
         }
     }
 
+    /**
+     * Oppgave 7A
+     * @param a
+     * @param b
+     * @return
+     */
+
     public static String flett(String a, String b) {
 
         String flettet = "";
@@ -273,7 +289,7 @@ public class Oblig1 {
         do{
 
             for (String a : s) {
-                if (a.isEmpty() || a.length() <= counter) {
+                if (a.length() <= counter) {
                 } else
                     flettet += a.charAt(counter);
                 if(a.length()>biggest) biggest = a.length();

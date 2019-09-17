@@ -42,14 +42,14 @@ public class Oblig1TestEgen extends TestCase {
 
         int[] a = {1,1,1,2,4,5,7,7,7};
 
-        assertEquals(5,Oblig1.antallUlikeSorter(a));
+        assertEquals(5,Oblig1.antallUlikeSortert(a));
     }
 
     public void testAntallulikeUsortert() {
 
         int[] a= {1,5,3,2,4,1222,1,3,5};
 
-        assertEquals(6,Oblig1.antallulikeUsortert(a));
+        assertEquals(6,Oblig1.antallUlikeUsortert(a));
 
     }
 
