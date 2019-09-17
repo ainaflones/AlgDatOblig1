@@ -158,9 +158,8 @@ public class Oblig1 {
     
     public static void delsortering(int[] a) {
 
-
         int left = 0;
-        int right = a.length - 1;
+        int right = a.length-1;
 
         while (left < right) {
             while (left < right && a[left] % 2 != 0) left++;
@@ -171,10 +170,18 @@ public class Oblig1 {
                 a[left] = a[right];
                 a[right] = temp;
             }
+            else{
+                if(left==a.length-1){
+                    sort(a,0,a.length);
+                }
+            }
         }
 
         sort(a, 0, right);
         sort(a, right, a.length);
+
+
+
     }
 
     public static void sort(int[] a, int from, int to) {

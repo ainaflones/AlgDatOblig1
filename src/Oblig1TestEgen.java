@@ -56,11 +56,13 @@ public class Oblig1TestEgen extends TestCase {
     public void testDelsortering() {
 
         int[] a= {6,10,9,4,1,3,8,5,2,7};
+        int[] b = {3,1,5,11,9,7};
 
         Oblig1.delsortering(a);
-        for(int b: a){
-            System.out.println(b);
-        }
+
+
+       /* Oblig1.delsortering(b);
+        System.out.println(Arrays.toString(b));*/
 
 
 
