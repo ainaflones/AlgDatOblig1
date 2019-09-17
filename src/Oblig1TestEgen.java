@@ -102,4 +102,10 @@ public class Oblig1TestEgen extends TestCase {
         Oblig1.rotasjon(c, -12);
         assertEquals("[B, C, D, E, F, G, H, I, J, A]", Arrays.toString(c));
     }
+
+    public void testFlett() {
+
+        String a = Oblig1.flett("AM ","L","GEDS","ORATKRR","","R TRTE","IO","TGAUU");
+        System.out.println(a);
+    }
 }

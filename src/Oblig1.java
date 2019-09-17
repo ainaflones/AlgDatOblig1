@@ -284,7 +284,15 @@ public class Oblig1 {
         String flettet = "";
 
         int counter = 0;
-        int biggest = s[0].length();
+        int biggest = 0;
+
+
+        if(s.length <= 1){
+            return flettet;
+        }
+        else{
+             biggest = s[0].length();
+        }
 
         do{
 
