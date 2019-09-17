@@ -1,5 +1,6 @@
 // av Aina Flønes(S305075) og Wei-Ting Kao(334005)
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -251,7 +252,7 @@ public class Oblig1 {
      * @return
      */
 
-    public static String flett(String a, String b) {
+    public static String merge(String a, String b) {
 
         String flettet = "";
 
@@ -275,7 +276,7 @@ public class Oblig1 {
      * @param s
      * @return
      */
-    public static String flett(String... s) {
+    public static String merge(String... s) {
 
         String flettet = "";
 
@@ -427,21 +428,64 @@ public class Oblig1 {
 
     public static boolean inneholdt(String a, String b) {
         if (a.length() == 0) return true;
+        if (a.length() > b.length()) return false;
 
-        char[] c = b.toCharArray();
+        char[] aList = a.toCharArray();
+        char[] bList = b.toCharArray();
 
-        for (int i = 0; i < a.length(); i++) {
-            boolean found = false;
+        mergeSort(aList);
+        mergeSort(bList);
 
-            for (int j = 0; j < c.length; j++) {
-                if (a.charAt(i) == c[j]) {
-                    c[j] = '0';
-                    found = true;
-                    break;
-                }
+        int aIndex = 0;
+        int bIndex = 0;
+
+        while(aIndex < aList.length && bIndex < bList.length){
+            if(aList[aIndex] == bList[bIndex]){
+                aIndex++;
+                bIndex++;
             }
-            if (found == false) return false;
+            else if (aList[aIndex] > bList[bIndex]){
+                bIndex++;
+            }
+            else {
+                return false;
+            }
         }
-        return true;
+
+        if(aIndex == aList.length){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+    private static void mergeSort(char[] a, char[] b, int from, int to) {
+        if (to - from <= 1) return;
+        int m = (from + to) / 2;
+
+        mergeSort(a, b, from, m);
+        mergeSort(a, b, m, to);
+
+        if (a[m-1] > a[m]) merge(a, b, from, m, to);
+    }
+
+    public static void mergeSort(char[] a) {
+        char[] b = new char[a.length / 2];
+        mergeSort(a, b, 0, a.length);
+    }
+
+    private static void merge(char[] a, char[] b, int from, int m, int to) {
+        int n = m - from;
+        System.arraycopy(a, from, b, 0, n);
+
+        int i = 0, j = m, k = from;
+
+        while (i < n && j < to) {
+            a[k++] = b[i] <= a[j] ? b[i++] : a[j++];
+        }
+
+        while (i < n) a[k++] = b[i++];
     }
 }
