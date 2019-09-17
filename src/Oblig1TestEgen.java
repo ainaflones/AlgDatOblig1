@@ -2,7 +2,7 @@ import junit.framework.TestCase;
 
 import java.util.Arrays;
 
-public class Oblig1Test extends TestCase {
+public class Oblig1TestEgen extends TestCase {
 
     public void testMaks() {
 
