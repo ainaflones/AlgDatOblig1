@@ -119,36 +119,25 @@ public class Oblig1 {
      *
      */
 
-    public static int antallUlikeUsortert(int [] a){
+    public static int antallUlikeUsortert(int[] a) {
+        if (a.length == 0) return 0;
+        if (a.length == 1) return 1;
 
-        if(a.length == 0){
-            return 0;
+        int count = 1;
+        int first = a[0];
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] != first) count++;
         }
-        int count = 0;
 
-        /**
-        int test = maks(a);
-
-
-        for(int i = 0; i <= test; i++){
-
-            for (int j = 0; j < a.length; j++) {
-
-                if (a[j] == i) {
-                    count++;
-                    break;
-                }
+        int start;
+        for (int i = 1; i < a.length; i++) {
+            start = a[i];
+            if (start == a[i - 1]) continue;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] == start) count--;
             }
-
         }
-
-         **/
-
-
-
-
-
-
         return count;
     }
 
