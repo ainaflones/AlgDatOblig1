@@ -38,7 +38,7 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void flett() {
-        assertEquals(true, false, "Implementer flett og denne testen");
+        assertEquals(true, false, "Implementer merge og denne testen");
     }
 
     @org.junit.jupiter.api.Test

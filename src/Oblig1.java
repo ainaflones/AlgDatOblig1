@@ -145,11 +145,14 @@ public class Oblig1 {
     /**
      * OPPGAVE 4
      */
-    
-    public static void delsortering(int[] a) {
 
+    public static void delsortering(int[] a) {
         int left = 0;
         int right = a.length-1;
+
+        if(a.length == 0){
+          right = 0;
+        }
 
         while (left < right) {
             while (left < right && a[left] % 2 != 0) left++;
@@ -162,37 +165,50 @@ public class Oblig1 {
             }
             else{
                 if(left==a.length-1){
-                    sort(a,0,a.length);
+                    Arrays.sort(a);
                 }
             }
         }
 
-        sort(a, 0, right);
-        sort(a, right, a.length);
-
-
+        if(right != -1){
+            quickSort(a, 0, right-1);
+            quickSort(a, right, a.length-1);
+        }
 
     }
 
-    public static void sort(int[] a, int from, int to) {
+    private static void quickSort(int[] a, int left, int right) {
+        if (left >= right) return;
 
-        for (int i = from; i < to - 1; i++) {
+        int k = partition(a, left, right, (left + right) / 2);
 
-            int x = i;
-            int verdi = a[i];
+        quickSort(a, left, k - 1);
+        quickSort(a, k + 1, right);
+    }
 
-            for (int j = i + 1; j < to; j++) {
+    private static int partition(int[] a, int left, int right, int indeks) {
+        swap(a, indeks, right);
 
-                if (a[j] < verdi) {
-                    verdi = a[j];
-                    x = j;
-                }
-            }
+        int pos = partition0(a, left, right - 1, a[right]);
+        swap(a, pos, right);
+        return pos;
+    }
 
-            int temp = a[i];
-            a[i] = a[x];
-            a[x] = temp;
+    private static int partition0(int[] a, int left, int right, int pivot) {
+        while (true)
+        {
+            while (left <= right && a[left] < pivot) left++;
+            while (left <= right && a[right] >= pivot) right--;
+
+            if (left < right) swap(a, left++, right--);
+            else return left;
         }
+    }
+
+    public static void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
 
 
