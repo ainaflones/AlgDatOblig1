@@ -76,7 +76,7 @@ public class Oblig1 {
      *
      */
 
-    public static int antallUlikeSorter(int[] a){
+    public static int antallUlikeSortert(int[] a){
 
         if(!sjekkSortering(a)){
             throw new IllegalStateException("Array not sorted");
@@ -119,7 +119,7 @@ public class Oblig1 {
      *
      */
 
-    public static int antallulikeUsortert(int [] a){
+    public static int antallUlikeUsortert(int [] a){
 
         if(a.length == 0){
             return 0;
