@@ -1,4 +1,4 @@
-// av Aina Flønes(S305075) og Wei-Ting Kao(334005)
+// av Aina Flønes(S305075), Wei-Ting Kao(334005) og Wai Shing Hung (s331376)
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
