@@ -27,8 +27,8 @@ public class Oblig1 {
      * And the average number of a[i] > a[i+1] ~= n - ln(n) -0.577, of order n
      * Therefore the previous max method is better than the maks method here
      *
-     * @param a
-     * @return
+     *
+     *
      */
 
 
@@ -214,7 +214,7 @@ public class Oblig1 {
 
     /**
      * Oppgave 5
-     * @param a
+     *
      */
 
     public static void rotasjon(char[] a) {
@@ -230,8 +230,8 @@ public class Oblig1 {
 
     /**
      * Oppgave 6
-     * @param a
-     * @param k
+     *
+     *
      */
     public static void rotasjon(char[] a, int k) {
         if (a.length <= 1) return;
@@ -263,12 +263,12 @@ public class Oblig1 {
 
     /**
      * Oppgave 7A
-     * @param a
-     * @param b
-     * @return
+     *
+     *
+     *
      */
 
-    public static String merge(String a, String b) {
+    public static String flett(String a, String b) {
 
         String flettet = "";
 
@@ -289,10 +289,10 @@ public class Oblig1 {
 
     /**
      * Oppgave 7B
-     * @param s
-     * @return
+     *
+     *
      */
-    public static String merge(String... s) {
+    public static String flett(String... s) {
 
         String flettet = "";
 
