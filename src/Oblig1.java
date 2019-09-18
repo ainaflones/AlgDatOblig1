@@ -115,9 +115,7 @@ public class Oblig1 {
 
     /**
      * Opppgave 3
-     *
-     *TODO: ?????
-     *
+     **
      */
 
     public static int antallUlikeUsortert(int[] a) {
@@ -325,6 +323,8 @@ public class Oblig1 {
 
     /*
     * Oppgave 8
+    *
+    * 
     * */
 
     public static int[] indekssortering(int[] a) {
