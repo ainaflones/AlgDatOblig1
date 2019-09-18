@@ -321,11 +321,12 @@ public class Oblig1 {
 
     }
 
-    /*
+    /**
     * Oppgave 8
     *
-    * 
-    * */
+    *
+    *
+     **/
 
     public static int[] indekssortering(int[] a) {
         if (a == null) {
@@ -379,9 +380,9 @@ public class Oblig1 {
     }
 
 
-    /*
+    /**
     * Oppgave 9
-    * */
+    * **/
 
     public static int[] tredjeMin(int[] list){
         int length = list.length;
@@ -440,7 +441,7 @@ public class Oblig1 {
     /**
      * oppgave 10
      * Vi tar som gitt at tegnstrengene ​a ​ og ​b​ kun har store bokstaver (A − Å)
-     */
+     **/
 
     public static boolean inneholdt(String a, String b) {
         if (a.length() == 0) return true;
